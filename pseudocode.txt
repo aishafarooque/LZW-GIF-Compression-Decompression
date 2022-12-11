@@ -1,0 +1,71 @@
+
+func build_dictionary_with_character_key():
+    dictionary = {}
+
+    for i=0 to 256:
+        ascii = chr(i)
+        dictionary[ascii] = i
+
+    return dictionary
+
+func build_dictionary_with_ASCII_key():
+    dictionary = {}
+
+    for i=0 to 256:
+        ascii = chr(i)
+        dictionary[i] = ascii
+
+    return dictionary
+
+func Compress()
+  dictionary_size = 256
+
+  dictionary = build_dictionary_with_character_key()
+
+  input_file = Read('funny.gif')
+  output_file = Read('output.lzw')
+  compressed_string = ''
+  previous_string ''
+
+  for all characters in imageData do
+    current_string = previous_string + current_string
+    if current_string not in dictionary then
+        dictionary[current_string] = dictionary_size
+        dictionary_size += 1
+
+        output_file.Write(dictionary[previous_string])
+        previous_string = current_string[-1]
+    else
+        previous_string += characters
+
+    if i == imageData.length - 1 and if previous_string in dictionary then
+        output_file.Write(dictionary[previous_string])
+
+func Decompress()
+    dictionary_size = 256
+    dictionary = Build_Dictionary_With_Index_Key()
+
+    input_file = Open('output.lzw')
+    output_file = Open('lzw-output.txt')
+    imageData = []
+
+    for i=0 in range(4096) do
+        data =input_file.Read()
+        imageData.Append(data)
+
+    previous_code = None
+    decompressed_integer_code = []
+
+    for i, code in enumerate(imageData) do
+        if code not in dictionary then
+            dictionary[code] = previous_code + previous_code[0]
+
+        if i > 0 then
+            dictionary[dictionary_size] = previous_code + dictionary[code][0]
+            dictionary_size += 1
+
+        previous_code = dictionary[code]
+        decompressed_integer_code.Append(previous_code)
+
+    for data in decompressed_integer_code do
+        output_file.Write(data)
