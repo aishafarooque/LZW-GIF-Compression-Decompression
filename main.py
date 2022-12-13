@@ -1,7 +1,10 @@
 from compress import Compress
 from processGif import ProcessGif
+import os
 
 if __name__ == '__main__':
+
+  
 
   inputFolderPrefix = 'input/'
   INPUT_GIF_NAME = inputFolderPrefix + 'the-office.gif'
@@ -27,3 +30,14 @@ if __name__ == '__main__':
   # Convert the base64 encoding to .gif file
   processor.deconvert(inputFileName=DECOMPRESSED_NAME,
                       outputFileName=OUTPUT_GIF_NAME)
+
+  sizeBeforeCompression = os.path.getsize(INPUT_GIF_NAME)
+  sizeAfterCompression = os.path.getsize(OUTPUT_GIF_NAME)
+
+  print (f'Size before compression: {sizeBeforeCompression}')
+  print (f'Size after compression: {sizeAfterCompression}')
+
+  if sizeBeforeCompression == sizeAfterCompression:
+    print (f'No data was lost after compression and decompression')
+  else:
+    print (f'Data was lost after compression and decompression')

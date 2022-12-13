@@ -1,11 +1,10 @@
-import sys
 from struct import *
+import os
 
 # This implementation is based on the book
 #  - Information And Entropy, Chapter 3.7.1 - LZW Example 1 and 2 (Paul Penfield, Jr.)
 # -  Data Structures & Their Algorithms, Harper Collins Publishers, Harry R. Lewis and Larry
 #    Denenberg, 1991, and Data Structures and Algorithms, A. Drozdek, Brooks/Cole 2001.
-
 
 class Compress:
 
@@ -60,8 +59,9 @@ class Compress:
         self.dictionary[currentString] = nextDictionaryIndex
         nextDictionaryIndex += 1
 
-        # Convert to bytes using the struct library
+        # Convert the strings to bytes using the struct library
         # Reference = https://docs.python.org/3/library/struct.html
+        # Packing bits will save space.
         compressedOutputFile.write(
             pack('>H', int(self.dictionary[previousString])))
         previousString = currentString[-1]
@@ -83,7 +83,6 @@ class Compress:
     # Delete dictionary to save RAM.
     del self.dictionary
 
-
   def decompress(self):
 
     # This will be used to store new codes inside the
@@ -101,14 +100,21 @@ class Compress:
       compressedImageData = compressedOutputFile.read(2)
       if len(compressedImageData) != 2:
         break
+
+      # struct.unpack takes bytes and converts them to their 'higher-order' equivalents.
+      # Reference - https://stackoverflow.com/a/64362371/7155281
       compressedImageData = unpack('>H', compressedImageData)[0]
       imageData.append(compressedImageData)
 
     previousCode = None
 
     for i, integerCode in enumerate(imageData):
+
+      # Special edge case where we're trying to get the integer code
+      # for an entry not inside the dictionary.
       if integerCode not in self.dictionary:
-        # Update dictionary by appending first character of the string.
+        # Update dictionary by appending first character of the string
+        # to avoid failure from the edge case.
         self.dictionary[integerCode] = previousCode + previousCode[0]
 
       if i > 0:

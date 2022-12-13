@@ -5,6 +5,7 @@ class ProcessGif:
   def __init__(self) -> None:
     pass
 
+  # Reference - https://stackoverflow.com/questions/22402679/write-decoded-from-base64-string-to-file
   def convert(self, inputFileName, outputFileName):
     with open(inputFileName, 'rb') as gif_file:
       encoded_string = base64.b64encode(gif_file.read())

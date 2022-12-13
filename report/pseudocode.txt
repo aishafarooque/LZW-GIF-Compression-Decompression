@@ -17,6 +17,7 @@ func build_dictionary_with_ASCII_key():
 
     return dictionary
 
+=============PSEUDOCODE FOR GIFS CONVERTED TO TEXT FIRST=============
 func Compress()
   dictionary_size = 256
 
@@ -69,3 +70,36 @@ func Decompress()
 
     for data in decompressed_integer_code do
         output_file.Write(data)
+
+=============PSEUDOCODE FOR GIFS USING COLOR TABLE=============
+func Compress(pixels)
+    dictionary = ColorBook() > Get local/global color book from user
+    output = [Colors.CLEAR] > Initialize output with clear code to indicate start of stream
+    output.Append(dictionary[pixels[0]]) > Add the first pixel to the output
+    previous_code = None
+    dictionary_size = 4
+    for pixel in pixels do
+        if previous_code + pixel in dictionary then
+            output.Append(dictionary[previous_code + pixel])
+        else
+            dictionary[dictionary_size] = previous_code + pixel > Add new entry at the next available index
+            dictionary_size += 1
+            output.Append(dictionary[previous_code])
+    output.Append(Colors.EOF) > Indicates end of stream to the decompression algorithm
+    return output
+
+func Decompress(integer_codes)):
+    dictionary = ColorBook()
+    output = dictionary[integer_codes[0]] > Add the first code to the output
+    previous_code = None
+    while code != Colors.EOF do
+        if code in dictionary then
+            color = dictionary[code]
+            output.Append(color)
+            dictionary[dictionary_size] = previous_code + color[0]
+            dictionary_size += 1
+        else
+            color = previous_code + previous_code[0] > Handling special edge case
+            dictionary[code] = color
+
+    return output
