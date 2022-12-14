@@ -4,8 +4,6 @@ import os
 
 if __name__ == '__main__':
 
-  
-
   inputFolderPrefix = 'input/'
   INPUT_GIF_NAME = inputFolderPrefix + 'the-office.gif'
 
