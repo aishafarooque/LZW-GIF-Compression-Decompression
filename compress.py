@@ -62,16 +62,21 @@ class Compress:
         # Convert the strings to bytes using the struct library
         # Reference = https://docs.python.org/3/library/struct.html
         # Packing bits will save space.
-        compressedOutputFile.write(
-            pack('>H', int(self.dictionary[previousString])))
+        # compressedOutputFile.write(
+        #     pack('>H', int(self.dictionary[previousString])))
+        compressedPixel = int(self.dictionary[previousString])
+        data = compressedPixel.to_bytes(2, byteorder='little')
+        compressedOutputFile.write(data)
         previousString = currentString[-1]
+
       else:
         previousString += character
 
       if i == len(imageData) - 1:
         if previousString in self.dictionary:
-          compressedOutputFile.write(
-              pack('>H', int(self.dictionary[previousString])))
+          compressedPixel = int(self.dictionary[previousString])
+          data = compressedPixel.to_bytes(2, byteorder='little')
+          compressedOutputFile.write(data)
 
     # This size will be used in the decompression for-loop
     # to construct the dictionary.
@@ -97,14 +102,20 @@ class Compress:
       # Start reading with two bytes at a time because otherwise, we cannot
       # unpack since the required buffer size is 2.
       # Reference - https://www.devdungeon.com/content/working-binary-data-python
+
       compressedImageData = compressedOutputFile.read(2)
-      if len(compressedImageData) != 2:
-        break
+      pixel = int.from_bytes(compressedImageData, byteorder='little')
+      imageData.append(pixel)
+
+      # if len(compressedImageData) != 2:
+      #   break
 
       # struct.unpack takes bytes and converts them to their 'higher-order' equivalents.
       # Reference - https://stackoverflow.com/a/64362371/7155281
-      compressedImageData = unpack('>H', compressedImageData)[0]
-      imageData.append(compressedImageData)
+      # compressedImageData = unpack('>H', compressedImageData)[0]
+
+      # compressedImageData = compressedImageData.from_bytes(2, byteorder='little')
+      # imageData.append(compressedImageData)
 
     previousCode = None
 
