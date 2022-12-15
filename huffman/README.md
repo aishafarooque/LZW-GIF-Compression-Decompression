@@ -32,6 +32,12 @@ aishafarooque@implementation~$ bash huffman/huffman.py
     - `small` - Strings of size, [30, 100, 2000, 30000, 50000]
     - `big` - Strings of size, [100000, 500000, 1000000, 5000000, 10000000]
 
+
+## File Structure
+- `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
+- `huffman.py` contains LZW, Huffman code and is the driver function.
+- `huffman.sh` will remove the data folders, make new folders, and run `huffman.py`.
+
 ## Expected Output
 For `python3 huffman/huffman.py -i uppercase -s small`, the expected output is:
 ```
@@ -43,8 +49,3 @@ For `python3 huffman/huffman.py -i uppercase -s small`, the expected output is:
           30000          30000                   26936                      142866
           50000          50000                   42232                      238094
 ```
-
-## File Structure
-- `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
-- `huffman.py` contains LZW, Huffman code and is the driver function.
-- `huffman.sh` will remove the data folders, make new folders, and run `huffman.py`.
