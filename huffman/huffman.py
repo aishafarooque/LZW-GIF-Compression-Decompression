@@ -141,8 +141,11 @@ def space(frequencies, originalString):
 def generateRandomCharacterString(fileName, stringSize, outputType):
     result = ''
     for _ in range(stringSize):
+
         if outputType == 'ASCII': character = random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase)
         elif outputType == 'ABC': character = random.choice(['A', 'B', 'C'])
+        elif outputType.lower() == 'uppercase': character = random.choice(string.ascii_uppercase)
+
         result += character
 
     with open(fileName, 'w') as f:
@@ -167,6 +170,7 @@ if __name__ == '__main__':
 
     if args.Input == 'ASCII': inputType = 'ASCII'
     elif args.Input == 'ABC': inputType = 'ABC'
+    elif args.Input == 'uppercase': inputType = 'uppercase'
     else:
         print ('Unidentified input type. Enter ABC or ASCII.')
         exit(0)
