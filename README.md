@@ -5,12 +5,13 @@
 
 This repository contains the code for the Lempel-Ziv-Welch Data Compression Algorithm. It has been modified to be applied on compression and decompression a .GIF file.
 
+This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compression-Decompression.
+
 ![](input/the-office.gif)
 
 ## Requirements and Libraries
 - Python3
 - struct: https://docs.python.org/3/library/struct.html
-
 
 ## How to run:
 

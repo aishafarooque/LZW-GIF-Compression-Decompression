@@ -4,14 +4,13 @@
 
 This repository contains `huffman.py` which contains the code to run LZW and Huffman.py on inputs between [30, 10000000].
 
-This can also be found at: https://github.com/aishafarooque/LZW-GIF-Compression-Decompression
+This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compression-Decompression.
 
 ## Requirements and Libraries
 - Python3
 - tabulate: https://pypi.org/project/tabulate/
 - argparse (1.1): https://pypi.org/project/argparse/
 - Collections: https://docs.python.org/3/library/collections.html
-
     - Counter: https://docs.python.org/3/library/collections.html#collections.Counter
 
 ## How to run:
