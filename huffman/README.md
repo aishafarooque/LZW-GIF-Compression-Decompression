@@ -6,7 +6,14 @@ This repository contains `huffman.py` which contains the code to run LZW and Huf
 
 This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compression-Decompression.
 
-## Requirements and Libraries
+Table of Contents
+1. [Requirements and Libraries](#requirements)
+2. [Example2](#example2)
+3. [Third Example](#third-example)
+4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+
+
+## Requirements and Libraries<a name="requirements"></a>
 - Python3
 - tabulate: https://pypi.org/project/tabulate/
 - argparse (1.1): https://pypi.org/project/argparse/
