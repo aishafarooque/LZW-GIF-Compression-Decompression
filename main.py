@@ -1,11 +1,21 @@
 from compress import Compress
 from processGif import ProcessGif
 import os
+import argparse
 
 if __name__ == '__main__':
 
-  inputFolderPrefix = 'input/'
-  INPUT_GIF_NAME = inputFolderPrefix + 'the-office.gif'
+  parser = argparse.ArgumentParser()
+  parser.add_argument("-i", "--Input", help = "GIF Name, must be inside input/ folder")
+  args = parser.parse_args()
+
+
+  if args.Input:
+    INPUT_GIF_NAME = args.Input
+  else:
+    print ('Cannot find GIF name. Using the-office.gif')
+    inputFolderPrefix = 'input/'
+    INPUT_GIF_NAME = inputFolderPrefix + 'the-office.gif'
 
   outputFolderPrefix = 'output/'
   ENCODED_GIF_NAME = outputFolderPrefix + 'encoded_gif.txt'

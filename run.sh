@@ -10,4 +10,4 @@ mkdir output
 # The result folder will contain the decompressed GIF.
 mkdir result
 
-python3 main.py
+python3 main.py -i input/the-office.gif

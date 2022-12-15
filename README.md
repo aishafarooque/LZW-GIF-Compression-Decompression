@@ -14,9 +14,10 @@ This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compress
 1. [Requirements and Libraries](#requirements)
 2. [How to run](#howtorun)
 3. [File Structure](#filestructure)
-4. [Expected Output](#expected)
-5. [Program Flow](#flow)
-6. [References](#references)
+4. [Argument Parser Supported Parameters](#filestructure)
+5. [Expected Output](#expected)
+6. [Program Flow](#flow)
+7. [References](#references)
 
 ## Requirements and Libraries<a name="requirements"></a>
 - Python3
@@ -34,6 +35,9 @@ The file can also be run using the following, but make sure to delete the output
 ```console
 aishafarooque@implementation~$ python3 main.py
 ```
+
+### Argument Parser Supported Parameters:<a name="argparser"></a>
+- `-i` - Path of the input gif, for example, `input/the-office.gif`
 
 ## File Structure<a name="filestructure"></a>
 

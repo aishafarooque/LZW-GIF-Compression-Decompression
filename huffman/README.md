@@ -9,7 +9,7 @@ This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compress
 ## Table of Contents
 1. [Requirements and Libraries](#requirements)
 2. [How to run](#howtorun)
-3. [Argument Parse Supported Parameters](#argparser)
+3. [Argument Parser Supported Parameters](#argparser)
 4. [File Structure](#filestructure)
 5. [Expected Output](#expected)
 
