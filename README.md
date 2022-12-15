@@ -36,6 +36,16 @@ aishafarooque@implementation~$ python3 main.py
 - The `report/` folder contains the pseudocode for the compression and decompression algorithms.
 - `processGif.py` contains the code to convert the gif file to and from a string.
 
+## Expected Output
+For python3 main.py, the expected output is:
+```
+File encoded and saved to output/encoded_gif.txt
+File decoded and saved to result/lzw-gif.gif
+Size before compression: 67399
+Size after compression: 67399
+No data was lost after compression and decompression
+```
+
 ## Program Flow
 The flow for compression is:
 
