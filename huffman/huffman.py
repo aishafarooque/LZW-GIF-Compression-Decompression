@@ -38,11 +38,7 @@ class Compress:
                 self.dictionary[currentString] = nextDictionaryIndex
                 nextDictionaryIndex += 1
 
-                # Convert the strings to bytes using the struct library
-                # Reference = https://docs.python.org/3/library/struct.html
                 # Packing bits will save space.
-                # compressedOutputFile.write(
-                #     pack('>H', int(self.dictionary[previousString])))
                 compressedPixel = int(self.dictionary[previousString])
                 data = compressedPixel.to_bytes(BYTE_SIZE, byteorder=BYTE_ORDER)
                 compressedOutputFile.write(data)
@@ -67,9 +63,7 @@ class Compress:
         # Delete dictionary to save RAM.
         del self.dictionary
 
-        # print ('LZW')
         sizeAfterCompression = os.path.getsize(self.outputFileName)
-        # print (f'Space used after the compression: {sizeAfterCompression}\n\n')
 
         return sizeAfterCompression
 
@@ -79,7 +73,7 @@ class Tree:
         self.right      = right
 
 def getCodes(node, path=''):
-    """Returns 0/1 codes for the tree starting at root."""
+    """Returns 0/1 codes (dictionary) for the tree starting at root."""
 
     codes = {}
 
@@ -101,6 +95,9 @@ def tree(nodes):
     # nodes first and contract them.
     nodes = sorted(frequencies.items(), reverse=True)
 
+    # Since we're contracting two edges at a time,
+    # we need to make sure there's always one node left in the
+    # array.
     while len(nodes) > 1:
 
         # Find the two smallest nodes.
@@ -125,17 +122,12 @@ def space(frequencies, originalString):
     spaceBefore, spaceAfter = 0, 0
 
     spaceBefore = len(originalString) * 8
-    # print (f'Space used before the compression: {spaceBefore}\n')
 
     # Calculate the message size, defined as
     # size = frequency * code.length()
     for node in huffmanTree:
         frequency = frequencies[node]           # int
         spaceAfter += frequency * len(huffmanTree[node])
-
-
-    # print ('HUFFMAN')
-    # print (f'Space used after the compression: {spaceAfter}')
     return spaceBefore, spaceAfter
 
 def generateRandomCharacterString(fileName, stringSize, outputType):
