@@ -6,11 +6,12 @@ This repository contains `huffman.py` which contains the code to run LZW and Huf
 
 This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compression-Decompression.
 
-Table of Contents
+## Table of Contents
 1. [Requirements and Libraries](#requirements)
-2. [Example2](#example2)
-3. [Third Example](#third-example)
-4. [Fourth Example](#fourth-examplehttpwwwfourthexamplecom)
+2. [How to run](#howtorun)
+3. [Argument Parse Supported Parameters](#argparser)
+4. [File Structure](#files)
+4. [Expected Output](#expected)
 
 
 ## Requirements and Libraries<a name="requirements"></a>
@@ -20,7 +21,7 @@ Table of Contents
 - Collections: https://docs.python.org/3/library/collections.html
     - Counter: https://docs.python.org/3/library/collections.html#collections.Counter
 
-## How to run:
+## How to run<a name="howtorun"></a>
 The code runs using one of the following commands from the `implementation` folder:
 ```console
 aishafarooque@implementation~$ python3 huffman/huffman.py -i ABC -s small
@@ -30,7 +31,7 @@ This file can also be run using the following. It will install tabulate remove a
 aishafarooque@implementation~$ bash huffman/huffman.py
 ```
 
-### Argument Parse Supported Parameters:
+### Argument Parse Supported Parameters:<a name="argparser"></a>
 - `-i` - Input/characters to use in strings, can be:
     - `uppercase`: Generate strings only with uppercase letters [A...Z]
     - `ASCII`: Generate strings using uppercase and lowercase alphabets, or digits
@@ -40,12 +41,12 @@ aishafarooque@implementation~$ bash huffman/huffman.py
     - `big` - Strings of size, [100000, 500000, 1000000, 5000000, 10000000]
 
 
-## File Structure
+## File Structure<a name="files"></a>
 - `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
 - `huffman.py` contains LZW, Huffman code and is the driver function.
 - `huffman.sh` will remove the data folders, make new folders, and run `huffman.py`.
 
-## Expected Output
+## Expected Output<a name="expected"></a>
 For `python3 huffman/huffman.py -i uppercase -s small`, the expected output is:
 ```
   String Length    String Size    LZW Compression Size    Huffman Compression Size
