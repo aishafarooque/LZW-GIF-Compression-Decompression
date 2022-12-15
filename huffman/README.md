@@ -32,6 +32,18 @@ aishafarooque@implementation~$ bash huffman/huffman.py
     - `small` - Strings of size, [30, 100, 2000, 30000, 50000]
     - `big` - Strings of size, [100000, 500000, 1000000, 5000000, 10000000]
 
+## Expected Output
+For `python3 huffman/huffman.py -i uppercase -s small`, the expected output is:
+```
+  String Length    String Size    LZW Compression Size    Huffman Compression Size
+---------------  -------------  ----------------------  --------------------------
+             30             30                      60                         121
+            100            100                     186                         462
+           2000           2000                    2552                        9487
+          30000          30000                   26936                      142866
+          50000          50000                   42232                      238094
+```
+
 ## File Structure
 - `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
 - `huffman.py` contains LZW, Huffman code and is the driver function.
