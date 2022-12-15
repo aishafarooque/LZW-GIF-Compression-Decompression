@@ -62,8 +62,6 @@ class Compress:
         # Convert the strings to bytes using the struct library
         # Reference = https://docs.python.org/3/library/struct.html
         # Packing bits will save space.
-        # compressedOutputFile.write(
-        #     pack('>H', int(self.dictionary[previousString])))
         compressedPixel = int(self.dictionary[previousString])
         data = compressedPixel.to_bytes(2, byteorder='little')
         compressedOutputFile.write(data)
@@ -106,16 +104,6 @@ class Compress:
       compressedImageData = compressedOutputFile.read(2)
       pixel = int.from_bytes(compressedImageData, byteorder='little')
       imageData.append(pixel)
-
-      # if len(compressedImageData) != 2:
-      #   break
-
-      # struct.unpack takes bytes and converts them to their 'higher-order' equivalents.
-      # Reference - https://stackoverflow.com/a/64362371/7155281
-      # compressedImageData = unpack('>H', compressedImageData)[0]
-
-      # compressedImageData = compressedImageData.from_bytes(2, byteorder='little')
-      # imageData.append(compressedImageData)
 
     previousCode = None
 
