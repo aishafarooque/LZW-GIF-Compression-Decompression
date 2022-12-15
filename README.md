@@ -1,5 +1,6 @@
 # LZW Data Compression and Decompression Algorithm
 
+[![GitHub forks](https://img.shields.io/github/forks/Naereen/StrapDown.js.svg?style=social&label=Repository&maxAge=2592000)](https://github.com/aishafarooque/LZW-GIF-Compression-Decompression)
 [![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 This repository contains the code for the Lempel-Ziv-Welch Data Compression Algorithm. It has been modified to be applied on compression and decompression a .GIF file.
