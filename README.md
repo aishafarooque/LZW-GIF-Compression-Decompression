@@ -14,15 +14,16 @@ This repository contains the code for the Lempel-Ziv-Welch Data Compression Algo
 ## How to run:
 
 To run this repository, enter the following into your terminal:
+```console
+aishafarooque@implementation~$ bash run.sh
 ```
-bash run.sh
-```
+The `run.sh` file will sanitize the working directory to remove any old outputs. It will make the `output/` and `results/` folder. And then, run a command to launch the `main.py` file.
+
 The file can also be run using the following, but make sure to delete the output folder:
-```
-python3 main.py
+```console
+aishafarooque@implementation~$ python3 main.py
 ```
 
-The run file will sanitize the working directory to remove any old outputs. It will make the `output/` and `results/` folder. And then, run a command to launch the `main.py` file.
 
 ## File Structure
 

@@ -1,4 +1,5 @@
 # Huffman vs. LZW Comparison
+[![Python 3.9](https://img.shields.io/badge/python-3.9-blue.svg)](https://www.python.org/downloads/release/python-360/)
 
 This repository contains `huffman.py` which contains the code to run LZW and Huffman.py on inputs between [30, 10000000].
 
@@ -15,6 +16,10 @@ The code runs using one of the following commands from the `implementation` fold
 ```console
 aishafarooque@implementation~$ python3 huffman/huffman.py -i ABC -s small
 ```
+This file can also be run using the following. It will install tabulate remove and create new data folders, and run `python3 huffman/huffman.py -i uppercase -s small`:
+```console
+aishafarooque@implementation~$ bash huffman/huffman.py
+```
 
 ### Argument Parse Supported Parameters:
 - `-i` - Input/characters to use in strings, can be:
@@ -24,3 +29,8 @@ aishafarooque@implementation~$ python3 huffman/huffman.py -i ABC -s small
 - `-s` - Input size/length, can be:
     - `small` - Strings of size, [30, 100, 2000, 30000, 50000]
     - `big` - Strings of size, [100000, 500000, 1000000, 5000000, 10000000]
+
+## File Structure
+- `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
+- `huffman.py` contains LZW, Huffman code and is the driver function.
+- `huffman.sh` will remove the data folders, make new folders, and run `huffman.py`.
