@@ -26,7 +26,6 @@ The file can also be run using the following, but make sure to delete the output
 aishafarooque@implementation~$ python3 main.py
 ```
 
-
 ## File Structure
 
 - The `input/` folder contains the .gif file to be processed. Only one file can be processed at a time.
@@ -36,6 +35,15 @@ aishafarooque@implementation~$ python3 main.py
     - `lzw-decompressed.txt` is the output after decompressing.
 - The `report/` folder contains the pseudocode for the compression and decompression algorithms.
 - `processGif.py` contains the code to convert the gif file to and from a string.
+
+## Program Flow
+The flow for compression is:
+
+![Compression](assets/compression.png)
+
+The flow for decompression is:
+
+![Decompression](assets/decompression.png)
 
 ## References
 All references for the code have been left above or below it. The LZW algorithm is based on the textbooks:
