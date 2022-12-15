@@ -51,7 +51,7 @@ func Decompress()
     imageData = []
 
     for i=0 in range(4096) do
-        data =input_file.Read()
+        data = input_file.Read()
         imageData.Append(data)
 
     previous_code = None
