@@ -10,7 +10,7 @@ This code can also be found at https://github.com/aishafarooque/LZW-GIF-Compress
 1. [Requirements and Libraries](#requirements)
 2. [How to run](#howtorun)
 3. [Argument Parse Supported Parameters](#argparser)
-4. [File Structure](#files)
+4. [File Structure](#filestructure)
 4. [Expected Output](#expected)
 
 
@@ -41,7 +41,7 @@ aishafarooque@implementation~$ bash huffman/huffman.py
     - `big` - Strings of size, [100000, 500000, 1000000, 5000000, 10000000]
 
 
-## File Structure<a name="files"></a>
+## File Structure<a name="filestructure"></a>
 - `ASCII`, `ABC` and `uppercase` contain the data generate by `huffman.py`.
 - `huffman.py` contains LZW, Huffman code and is the driver function.
 - `huffman.sh` will remove the data folders, make new folders, and run `huffman.py`.
