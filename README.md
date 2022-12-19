@@ -33,7 +33,7 @@ The `run.sh` file will sanitize the working directory to remove any old outputs.
 
 The file can also be run using the following, but make sure to delete the output folder:
 ```console
-aishafarooque@implementation~$ python3 main.py
+aishafarooque@implementation~$ python3 main.py -i input/the-office.gif
 ```
 
 ### Argument Parser Supported Parameters:<a name="argparser"></a>
