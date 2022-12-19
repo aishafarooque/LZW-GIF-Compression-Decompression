@@ -1,0 +1,8 @@
+# def generate_big_random_letters(size):
+#     chars = ''.join([random.choice(string.ascii_uppercase + string.digits + string.ascii_lowercase) for i in range(size)])  # 1
+
+#     with open('data.txt', 'w') as f:
+#         f.write(chars)
+
+# if __name__ == '__main__':
+#     generate_big_random_letters(30)
